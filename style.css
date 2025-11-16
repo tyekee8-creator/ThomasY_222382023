@@ -1,0 +1,163 @@
+/* Thomas S. Yekee */
+
+:root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#4f46e5; /* indigo */
+      --accent-2:#06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --max-width:1100px;
+      --gap:20px;
+      --txt:#e6eef8;
+      --shadow: 0 6px 18px rgba(2,6,23,0.6);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg) 0%, #071022 100%);
+      color:var(--txt);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Layout container */
+    .container{max-width:var(--max-width);margin:36px auto;padding:24px;}
+
+    /* Navigation */
+    header{position:sticky;top:14px;z-index:30}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;background:transparent;padding:8px 12px;border-radius:14px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,0.06)}
+    .brand h1{font-size:1rem;margin:0}
+
+    nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--txt);text-decoration:none;font-weight:600;padding:8px;border-radius:8px;display:inline-block}
+    nav a:hover{background:var(--glass);transform:translateY(-2px)}
+
+    .cta{display:flex;gap:8px}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:8px 12px;border-radius:10px;color:white;text-decoration:none;font-weight:600}
+
+    /* Mobile nav toggle */
+    .mobile-toggle{display:none;background:transparent;border:0;color:var(--txt);font-size:20px}
+
+    main{margin-top:20px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:320px 1fr;gap:var(--gap);align-items:center}
+
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .profile-photo{width:100%;border-radius:12px;overflow:hidden}
+    .profile-photo img{width:100%;height:auto;display:block}
+    .bio{margin-top:12px}
+    .bio h2{margin:0 0 6px 0}
+    .bio p{margin:0;color:var(--muted)}
+
+   
+    /* Content grid */
+    .content-grid{display:grid;grid-template-columns:1fr 360px;gap:var(--gap);margin-top:20px}
+
+    section.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    section.card h3{margin-top:0}
+
+    /* Education & Experience lists */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .item{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01)}
+    .item h4{margin:0}
+    .item p{margin:6px 0 0 0;color:var(--muted);font-size:0.95rem}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));}
+    .project h4{margin:0}
+    .project .meta{font-size:0.85rem;color:var(--muted);margin-top:6px}
+    .project .tools{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tool{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px;font-size:0.85rem}
+
+    /* Skills (progress bars) */
+    .skills{display:flex;flex-direction:column;gap:10px}
+    .skill{display:flex;flex-direction:column;gap:6px}
+    .skill .label{display:flex;justify-content:space-between;font-weight:600}
+    .progress{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .progress > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px;transition:width 800ms cubic-bezier(.2,.9,.3,1)}
+
+    /* Certificates */
+    .cert-list{display:flex;flex-direction:column;gap:8px}
+
+    /* Contact form */
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:var(--txt);outline:none}
+    input:focus,textarea:focus{border-color:rgba(79,70,229,0.8)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .submit{justify-self:start}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .content-grid{grid-template-columns:1fr;}
+      .projects{grid-template-columns:1fr}
+      nav ul{display:none}
+      .mobile-toggle{display:block}
+    }
+
+    @media (max-width:420px){
+      .container{padding:12px;margin:18px auto}
+      .brand h1{display:none}
+    }
+
+    /* small helper */
+    .muted{color:var(--muted)}
+    a.social{display:inline-flex;align-items:center;gap:8px}
+    .contact-links {
+  display: flex;
+  flex-wrap: wrap;       /* allows wrapping on small screens */
+  gap: 1rem;             /* space between chips */
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #007bff; /* blue */
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  cursor: pointer;       /* ensures pointer hand shows */
+}
+
+.chip:hover {
+  background-color: #0056b3; /* darker blue */
+}
+
+.chip i {
+  font-size: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .contact-links {
+    flex-direction: column;   /* stack vertically */
+    align-items: stretch;
+  }
+
+  .chip {
+    justify-content: center;
+    width: 100%;              /* full width on mobile */
+    font-size: 1rem;
+  }
+}
